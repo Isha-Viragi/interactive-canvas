@@ -28,3 +28,15 @@ c.strokeStyle = "red"
 c.stroke(); //Fill line in
 c.fillStyle = "lightyellow"
 c.fill();
+
+//Multiple circles
+
+for (let i = 0; i < 100; i++) {
+  let x = Math.random() * window.innerWidth;
+  let y = Math.random() * window.innerHeight;
+  //Circle
+  c.beginPath(); //New line
+  c.arc(x, y, 30, 0, Math.PI * 2, false); //Create circle
+  c.strokeStyle = "blue"
+  c.stroke(); //Fill line in
+}
