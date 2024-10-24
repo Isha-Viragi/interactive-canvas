@@ -9,7 +9,8 @@ const c = canvas.getContext("2d");
 
 let x = 100;
 let y = 100;
-
+let dx = 3;
+let dy = 3;
 
 function animate() {
   requestAnimationFrame(animate);
@@ -20,8 +21,8 @@ function animate() {
   c.strokeStyle = "red";
   c.stroke();
 
-  x++;
-  y++;
+  x += dx;
+  y += dy;
 
 }
 
