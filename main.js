@@ -12,3 +12,9 @@ c.arc(100, 100, 30, 0, Math.PI * 2, false);
 c.strokeStyle = "red";
 c.stroke();
 
+function animate() {
+  requestAnimationFrame(animate);
+  console.log('test');
+}
+
+animate();
