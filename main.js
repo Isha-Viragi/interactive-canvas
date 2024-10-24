@@ -22,9 +22,9 @@ function animate() {
   c.strokeStyle = "red";
   c.stroke();
 
-  if (x >= window.innerWidth || x <= 0)
+  if (x + radius >= window.innerWidth || x - radius <= 0)
     dx *= -1;
-  if (y >= window.innerHeight || y <= 0)
+  if (y + radius >= window.innerHeight || y - radius <= 0)
     dy *= -1;
 
   x += dx;
