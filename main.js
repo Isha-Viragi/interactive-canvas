@@ -11,13 +11,14 @@ let x = 100;
 let y = 100;
 let dx = 5;
 let dy = 5;
+let radius = 30;
 
 function animate() {
   requestAnimationFrame(animate);
   c.clearRect(0, 0, innerWidth, innerHeight);
 
   c.beginPath();
-  c.arc(x, y, 30, 0, Math.PI * 2, false);
+  c.arc(x, y, radius, 0, Math.PI * 2, false);
   c.strokeStyle = "red";
   c.stroke();
 
