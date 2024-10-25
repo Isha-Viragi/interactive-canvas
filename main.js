@@ -7,6 +7,33 @@ canvas.height = window.innerHeight;
 //Set up context
 const c = canvas.getContext("2d");
 
+//Circle class
+function Circle(x, y, dx, dy, radius) {
+  this.x = x;
+  this.y = y;
+  this.dx = dx;
+  this.dy = dy;
+  this.radius = radius;
+
+  function draw() {
+    c.clearRect(0, 0, innerWidth, innerHeight);
+    c.beginPath();
+    c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+    c.strokeStyle = "red";
+    c.stroke();
+  }
+
+  function update() {
+    if (this.x + this.radius >= window.innerWidth || this.x - this.radius <= 0)
+      this.dx *= -1;
+    if (this.y + this.radius >= window.innerHeight || this.y - this.radius <= 0)
+      this.dy *= -1;
+
+    this.x += this.dx;
+    this.y += this.dy;
+  }
+}
+
 let x = Math.random() * window.innerWidth;
 let y = Math.random() * window.innerHeight;
 let dx = (Math.random() - 0.5) * 8;
@@ -15,21 +42,6 @@ let radius = 30;
 
 function animate() {
   requestAnimationFrame(animate);
-  c.clearRect(0, 0, innerWidth, innerHeight);
-
-  c.beginPath();
-  c.arc(x, y, radius, 0, Math.PI * 2, false);
-  c.strokeStyle = "red";
-  c.stroke();
-
-  if (x + radius >= window.innerWidth || x - radius <= 0)
-    dx *= -1;
-  if (y + radius >= window.innerHeight || y - radius <= 0)
-    dy *= -1;
-
-  x += dx;
-  y += dy;
-
 }
 
 animate();
