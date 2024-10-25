@@ -7,10 +7,11 @@ canvas.height = window.innerHeight;
 //Set up context
 const c = canvas.getContext("2d");
 
-let x = 100;
-let y = 100;
-let dx = 5;
-let dy = 5;
+let x = Math.random() * window.innerWidth;
+let y = Math.random() * window.innerHeight;
+console.log(x, y)
+let dx = Math.random() * 2;
+let dy = Math.random() * 2;
 let radius = 30;
 
 function animate() {
