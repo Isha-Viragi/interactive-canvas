@@ -24,6 +24,7 @@ function Circle(x, y, dx, dy, radius) {
   }
 
   this.update = () => {
+    this.draw();
     if (this.x + this.radius >= window.innerWidth || this.x - this.radius <= 0)
       this.dx *= -1;
     if (this.y + this.radius >= window.innerHeight || this.y - this.radius <= 0)
@@ -40,9 +41,10 @@ let dx = (Math.random() - 0.5) * 8;
 let dy = (Math.random() - 0.5) * 8;
 let radius = 30;
 
+const circle = new Circle(x, y, dx, dy, radius);
 function animate() {
   requestAnimationFrame(animate);
-
+  circle.update();
 }
 
 animate();
