@@ -15,7 +15,7 @@ function Circle(x, y, dx, dy, radius) {
   this.dy = dy;
   this.radius = radius;
 
-  function draw() {
+  this.draw = () => {
     c.clearRect(0, 0, innerWidth, innerHeight);
     c.beginPath();
     c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
@@ -23,7 +23,7 @@ function Circle(x, y, dx, dy, radius) {
     c.stroke();
   }
 
-  function update() {
+  this.update = () => {
     if (this.x + this.radius >= window.innerWidth || this.x - this.radius <= 0)
       this.dx *= -1;
     if (this.y + this.radius >= window.innerHeight || this.y - this.radius <= 0)
@@ -42,6 +42,7 @@ let radius = 30;
 
 function animate() {
   requestAnimationFrame(animate);
+
 }
 
 animate();
