@@ -9,9 +9,8 @@ const c = canvas.getContext("2d");
 
 let x = Math.random() * window.innerWidth;
 let y = Math.random() * window.innerHeight;
-console.log(x, y)
-let dx = Math.random() * 2;
-let dy = Math.random() * 2;
+let dx = (Math.random() - 0.5) * 8;
+let dy = (Math.random() - 0.5) * 8;
 let radius = 30;
 
 function animate() {
