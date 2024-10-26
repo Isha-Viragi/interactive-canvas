@@ -13,6 +13,15 @@ const mouse = {
 }
 const maxRadius = 50;
 const minRadius = 3;
+//Array of colors
+const colorArray = [
+  "#581845",
+  "#900C3F",
+  "#C70039",
+  "#FF5733",
+  "#FFC300",
+  "#fff5d3",
+]
 
 //Event Listener
 window.addEventListener("mousemove", (event) => {
