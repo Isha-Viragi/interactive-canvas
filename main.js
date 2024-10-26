@@ -7,6 +7,11 @@ canvas.height = window.innerHeight;
 //Set up context
 const c = canvas.getContext("2d");
 
+//Event Listener
+window.addEventListener("mousemove", () => {
+  console.log('Mouse move')
+})
+
 //Circle class
 function Circle(x, y, dx, dy, radius) {
   this.x = x;
