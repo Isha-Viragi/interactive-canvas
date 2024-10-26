@@ -16,7 +16,6 @@ function Circle(x, y, dx, dy, radius) {
   this.radius = radius;
 
   this.draw = () => {
-    c.clearRect(0, 0, innerWidth, innerHeight);
     c.beginPath();
     c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
     c.strokeStyle = "red";
@@ -35,16 +34,30 @@ function Circle(x, y, dx, dy, radius) {
   }
 }
 
-let x = Math.random() * window.innerWidth;
-let y = Math.random() * window.innerHeight;
-let dx = (Math.random() - 0.5) * 8;
-let dy = (Math.random() - 0.5) * 8;
-let radius = 30;
 
-const circle = new Circle(x, y, dx, dy, radius);
+//Create array of circles
+const circleArray = [];
+
+for (let i = 0; i < 3; i++) {
+  let x = Math.random() * window.innerWidth;
+  let y = Math.random() * window.innerHeight;
+  let dx = (Math.random() - 0.5) * 8;
+  let dy = (Math.random() - 0.5) * 8;
+  let radius = 30;
+  circleArray.push(new Circle(x, y, dx, dy, radius));
+}
+
+// console.log(circleArray)
+
 function animate() {
   requestAnimationFrame(animate);
-  circle.update();
+  c.clearRect(0, 0, innerWidth, innerHeight);
+
+  for (let i = 0; i < circleArray.length; i++) {
+    circleArray[i].update()
+
+  }
+
 }
 
 animate();
