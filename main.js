@@ -11,6 +11,8 @@ const mouse = {
   x: undefined,
   y: undefined
 }
+const maxRadius = 50;
+const minRadius = 3;
 
 //Event Listener
 window.addEventListener("mousemove", (event) => {
@@ -38,7 +40,8 @@ function Circle(x, y, dx, dy, radius) {
     //Interactivity
     if ((this.x > mouse.x - 30 && this.x < mouse.x + 30) &&
       (this.y > mouse.y - 30 && this.y < mouse.y + 30)) {
-      this.radius++;
+      if (this.radius < maxRadius)
+        this.radius++;
     }
 
     else if (this.radius > radius) {
@@ -61,7 +64,7 @@ function Circle(x, y, dx, dy, radius) {
 const circleArray = [];
 
 for (let i = 0; i < 200; i++) {
-  let radius = 3;
+  let radius = minRadius;
   let x = Math.random() * (window.innerWidth - radius * 2) + radius;
   let y = Math.random() * (window.innerHeight - radius * 2) + radius;
   let dx = (Math.random() - 0.5) * 2;
