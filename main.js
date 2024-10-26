@@ -24,10 +24,14 @@ const colorArray = [
   "#fff5d3",
 ]
 
-//Event Listener
+//Event Listeners
 window.addEventListener("mousemove", (event) => {
   mouse.x = event.x;
   mouse.y = event.y;
+})
+window.addEventListener('resize', () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 })
 
 //Circle class
