@@ -7,13 +7,6 @@ canvas.height = window.innerHeight;
 //Set up context
 const c = canvas.getContext("2d");
 
-//Event Listener
-window.addEventListener("mousemove", (event) => {
-  let mouseX = event.x;
-  let mouseY = event.y;
-  console.log(mouseX, mouseY);
-})
-
 //Circle class
 function Circle(x, y, dx, dy, radius) {
   this.x = x;
@@ -54,17 +47,25 @@ for (let i = 0; i < 200; i++) {
   circleArray.push(new Circle(x, y, dx, dy, radius));
 }
 
-// console.log(circleArray)
-
 function animate() {
   requestAnimationFrame(animate);
   c.clearRect(0, 0, innerWidth, innerHeight);
 
   for (let i = 0; i < circleArray.length; i++) {
     circleArray[i].update()
-
   }
-
 }
+
+const mouse = {
+  x: undefined,
+  y: undefined
+}
+
+//Event Listener
+window.addEventListener("mousemove", (event) => {
+  mouse.x = event.x;
+  mouse.y = event.y;
+  console.log(mouse)
+})
 
 animate();
