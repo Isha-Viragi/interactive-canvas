@@ -32,6 +32,7 @@ window.addEventListener("mousemove", (event) => {
 window.addEventListener('resize', () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
+
   init();
 })
 
@@ -78,10 +79,11 @@ function Circle(x, y, dx, dy, radius) {
 }
 
 //Create array of circles
-const circleArray = [];
+let circleArray = [];
 
 //Function to initialize circles- create and store new instances of Circle objects
 function init() {
+  circleArray = [];
   for (let i = 0; i < totalCircles; i++) {
     let radius = (Math.random() * 3) + 1;
     let x = Math.random() * (window.innerWidth - radius * 2) + radius;
