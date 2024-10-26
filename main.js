@@ -11,9 +11,8 @@ const mouse = {
   x: undefined,
   y: undefined
 }
-const totalCircles = 600;
+const totalCircles = 800;
 const maxRadius = 50;
-const minRadius = 2;
 const cursorHitBox = 50;
 //Array of colors
 const colorArray = [
@@ -38,6 +37,7 @@ function Circle(x, y, dx, dy, radius) {
   this.dx = dx;
   this.dy = dy;
   this.radius = radius;
+  this.minRadius = radius;
   this.color = colorArray[Math.floor(Math.random() * colorArray.length)];
 
   this.draw = () => {
@@ -56,7 +56,7 @@ function Circle(x, y, dx, dy, radius) {
         this.radius++;
     }
 
-    else if (this.radius > radius) {
+    else if (this.radius > this.minRadius) {
       this.radius--;
     }
 
@@ -76,11 +76,11 @@ function Circle(x, y, dx, dy, radius) {
 const circleArray = [];
 
 for (let i = 0; i < totalCircles; i++) {
-  let radius = minRadius;
+  let radius = (Math.random() * 3) + 1;
   let x = Math.random() * (window.innerWidth - radius * 2) + radius;
   let y = Math.random() * (window.innerHeight - radius * 2) + radius;
-  let dx = (Math.random() - 0.5) * 2;
-  let dy = (Math.random() - 0.5) * 2;
+  let dx = (Math.random() - 0.5);
+  let dy = (Math.random() - 0.5);
   circleArray.push(new Circle(x, y, dx, dy, radius));
 }
 
