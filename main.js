@@ -16,7 +16,6 @@ const mouse = {
 window.addEventListener("mousemove", (event) => {
   mouse.x = event.x;
   mouse.y = event.y;
-  console.log(mouse)
 })
 
 //Circle class
@@ -30,8 +29,8 @@ function Circle(x, y, dx, dy, radius) {
   this.draw = () => {
     c.beginPath();
     c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-    c.strokeStyle = "red";
-    c.stroke();
+    c.fillStyle = "pink"
+    c.fill()
   }
 
   this.update = () => {
@@ -62,7 +61,7 @@ function Circle(x, y, dx, dy, radius) {
 const circleArray = [];
 
 for (let i = 0; i < 200; i++) {
-  let radius = 5;
+  let radius = 3;
   let x = Math.random() * (window.innerWidth - radius * 2) + radius;
   let y = Math.random() * (window.innerHeight - radius * 2) + radius;
   let dx = (Math.random() - 0.5) * 2;
