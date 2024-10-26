@@ -21,7 +21,7 @@ const colorArray = [
   "#C70039",
   "#FF5733",
   "#FFC300",
-  "#fff5d3",
+  "#ffeeb8",
 ]
 
 //Event Listeners
@@ -85,7 +85,7 @@ let circleArray = [];
 function init() {
   circleArray = [];
   for (let i = 0; i < totalCircles; i++) {
-    let radius = (Math.random() * 3) + 1;
+    let radius = (Math.random() * 2) + 1;
     let x = Math.random() * (window.innerWidth - radius * 2) + radius;
     let y = Math.random() * (window.innerHeight - radius * 2) + radius;
     let dx = (Math.random() - 0.5);
