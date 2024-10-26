@@ -32,6 +32,7 @@ window.addEventListener("mousemove", (event) => {
 window.addEventListener('resize', () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
+  init();
 })
 
 //Circle class
@@ -79,13 +80,16 @@ function Circle(x, y, dx, dy, radius) {
 //Create array of circles
 const circleArray = [];
 
-for (let i = 0; i < totalCircles; i++) {
-  let radius = (Math.random() * 3) + 1;
-  let x = Math.random() * (window.innerWidth - radius * 2) + radius;
-  let y = Math.random() * (window.innerHeight - radius * 2) + radius;
-  let dx = (Math.random() - 0.5);
-  let dy = (Math.random() - 0.5);
-  circleArray.push(new Circle(x, y, dx, dy, radius));
+//Function to initialize circles- create and store new instances of Circle objects
+function init() {
+  for (let i = 0; i < totalCircles; i++) {
+    let radius = (Math.random() * 3) + 1;
+    let x = Math.random() * (window.innerWidth - radius * 2) + radius;
+    let y = Math.random() * (window.innerHeight - radius * 2) + radius;
+    let dx = (Math.random() - 0.5);
+    let dy = (Math.random() - 0.5);
+    circleArray.push(new Circle(x, y, dx, dy, radius));
+  }
 }
 
 function animate() {
@@ -97,4 +101,6 @@ function animate() {
   }
 }
 
+//Call functions
+init();
 animate();
