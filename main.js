@@ -13,6 +13,7 @@ const mouse = {
 }
 const maxRadius = 50;
 const minRadius = 3;
+const totalCircles = 500;
 //Array of colors
 const colorArray = [
   "#581845",
@@ -36,12 +37,13 @@ function Circle(x, y, dx, dy, radius) {
   this.dx = dx;
   this.dy = dy;
   this.radius = radius;
+  this.color = colorArray[Math.floor(Math.random() * colorArray.length)];
 
   this.draw = () => {
     c.beginPath();
     c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-    c.fillStyle = colorArray[Math.floor(Math.random() * colorArray.length)]
-    c.fill()
+    c.fillStyle = this.color;
+    c.fill();
   }
 
   this.update = () => {
@@ -72,7 +74,7 @@ function Circle(x, y, dx, dy, radius) {
 //Create array of circles
 const circleArray = [];
 
-for (let i = 0; i < 200; i++) {
+for (let i = 0; i < totalCircles; i++) {
   let radius = minRadius;
   let x = Math.random() * (window.innerWidth - radius * 2) + radius;
   let y = Math.random() * (window.innerHeight - radius * 2) + radius;
