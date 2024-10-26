@@ -39,7 +39,11 @@ function Circle(x, y, dx, dy, radius) {
     //Interactivity
     if ((this.x > mouse.x - 30 && this.x < mouse.x + 30) &&
       (this.y > mouse.y - 30 && this.y < mouse.y + 30)) {
-      this.radius += 2;
+      this.radius++;
+    }
+
+    else if (this.radius > radius) {
+      this.radius--;
     }
 
 
